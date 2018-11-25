@@ -1,2 +1,9 @@
 import m from 'mithril';
-m.render(document.body, 'hello world');
+
+var SonosAuth = require('./views/SonosAuth.js');
+var SonosTTS = require('./views/SonosTTS.js')
+
+m.route(document.body, '/auth', {
+    '/auth': SonosAuth,
+    '/tts': SonosTTS,
+})
