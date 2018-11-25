@@ -1,0 +1,21 @@
+{
+  "name": "sonos-tts",
+  "version": "1.0.0",
+  "description": "Using Mithril to create a web app that allows you to play text-to-speech audio files form google on your Sonos.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack src/index.js --output bin/app.js -d --watch",
+    "build": "webpack src/index.js --output bin/app.js -p"
+  },
+  "keywords": [],
+  "author": "Yannick Weiss",
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "^1.1.6"
+  },
+  "devDependencies": {
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
