@@ -21,9 +21,40 @@
 		  font-weight: 400;
 		  line-height: 1.5;
 		}
+
+    .app {
+      width: 500px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
 	</style>
 </head>
 <body>
+  <div class="app">
+    <div class="app-login">
+      <h2>Please Sign-in with your Sonos account</h2>
+      <button>Sign in</button>
+    </div>
+    <div class="app-speak">
+      <h2>Sonos Text to Speech</h2>
+      <div>Select your target player
+        <select>
+          <optgroup label="Home 1">
+            <option>Player 1</option>
+            <option>Player 2</option>
+            <option>Player 3</option>
+          </optgroup>
+          <optgroup label="Home 2">
+            <option>Player 1</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div>Enter your text to speak: <input type="text" maxlength="255"></div>
+      <button>Send</button>
+    </div>
+  </div>
   <script src="bin/app.js"></script>
 </body>
 </html>
