@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack src/index.js --output public/app.js -d --watch",
-    "build": "webpack src/index.js --output public/app.js -p"
+    "start": "node server.js",
+    "build": "webpack src/index.js --output public/app.js -p",
+    "watch": "webpack src/index.js --output public/app.js -d --watch"
   },
   "keywords": [],
   "author": "Yannick Weiss",
