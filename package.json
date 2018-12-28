@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack src/index.js --output bin/app.js -d --watch",
-    "build": "webpack src/index.js --output bin/app.js -p"
+    "start": "webpack src/index.js --output public/app.js -d --watch",
+    "build": "webpack src/index.js --output public/app.js -p"
   },
   "keywords": [],
   "author": "Yannick Weiss",
   "license": "MIT",
   "dependencies": {
-    "mithril": "^1.1.6"
+    "fastify": "^1.13.2",
+    "fastify-static": "^1.0.0",
+    "google-tts-api": "0.0.4",
+    "mithril": "^1.1.6",
+    "simple-oauth2": "^2.2.1"
   },
   "devDependencies": {
     "@types/mithril": "^1.1.13",
