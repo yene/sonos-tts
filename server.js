@@ -87,23 +87,25 @@ fastify.get('/players', async (request, reply) => {
   }
 
   try {
-    let hhResult = await fetch(`https://api.ws.sonos.com/control/api/v1/households`, {
+    let hhResult = await fetch('https://api.ws.sonos.com/control/api/v1/households', {
       method: 'GET',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token.token.access_token}` },
     });
 
     let json = await hhResult.json();
+
     if (json.households === undefined) {
       throw new Error(json.error);
     }
 
     // polyfill name property until it is added to the api
     var households = json.households;
-    households.forEach(h => {
+    for (let i = 0; i < households.length; i++) {
+      let h = households[i];
       if (h.name === undefined) {
-        h.name = h.id;
+        h.name = 'Household ' + (i + 1);
       }
-    });
+    }
 
     // request players for each household
     for (let household of households) {
@@ -117,7 +119,9 @@ fastify.get('/players', async (request, reply) => {
         throw new Error(json.error);
       }
       let players = json.players;
-      // TODO: filter players by capabilities.includes('AUDIO_CLIP')
+      players = players.filter((p) => {
+        return p.capabilities.includes('AUDIO_CLIP');
+      });
       household.players = players.map((p) => {
         return {id: p.id, name: p.name};
       });
